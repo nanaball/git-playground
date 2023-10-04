@@ -47,3 +47,29 @@ git 다양한 기능 연습하기
 - 스태시를 하면 이전 커밋으로 돌아감(워크트리가 깨끗하게 변경됨)
 - 다시 작업 브랜치로 돌아왔을 경우, 원하는 스태시를 우클릭하고, [스태시 적용]
 - 임시저장된 히스토리의 변경 파일들이 복구
+
+
+
+# 원격저장소 (github)에서 pull request 되돌리기(revert)
+- 되돌려야하는 PR (merge가 완료된)이 있을 경우
+- 깃헙저장소 > pull request > closed 
+- 되돌려야하는 PR 선택 후 
+- REVERT 선택
+- REVERT를 위한 새로운 PR이 생성됨
+- 새로운 PR을 Merge하고 나면 기존 PR이 되돌려진 상태로 복귀
+
+
+## 브랜치 보호하기
+- branch protection rule
+- github > 저장소 > setting > branches
+- > add branch protection rules 
+    - Branch name pattern
+        - (패턴 가능 feature* > 모든 feature 브랜치)
+        - 일반적으로 main 브랜치를 보호
+    - requires a pull request before merging
+        - 반드시 병합하기 위해서는 pr이 필요
+        - (일반적인 commit & push를 통한 병합은 원격저장소에서 block이 됨)
+        - requires approvals
+            * pr 병합하기 위해서 반드시 승인이 있어야 하는 reviewer의 수
+    - 룰을 달성하게 되면 main 브랜치가 보호된다. 
+    
